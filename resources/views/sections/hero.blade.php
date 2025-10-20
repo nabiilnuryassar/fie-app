@@ -2,6 +2,10 @@
 <section class="hero-section section min-h-screen flex flex-col items-center justify-center text-center relative">
     <style>
         .hero-section {
+            /* Reserve space for fixed bottom bar to avoid page scroll */
+            --bottom-bar-height: 4rem;
+            min-height: calc(100vh - var(--bottom-bar-height));
+            overflow: hidden;
             background-image: url('{{ asset('images/bg-2.png') }}');
             background-size: cover;
             background-position: center -30px;
@@ -24,6 +28,7 @@
 
         @media (min-width: 640px) {
             .hero-section {
+                --bottom-bar-height: 4.5rem;
                 background-position: center -70px;
                 background-attachment: fixed;
             }
@@ -31,6 +36,7 @@
 
         @media (min-width: 768px) {
             .hero-section {
+                --bottom-bar-height: 5rem;
                 background-position: center -100px;
             }
         }
