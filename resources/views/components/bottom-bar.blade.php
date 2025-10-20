@@ -15,7 +15,7 @@
             justify-content: space-around;
             align-items: center;
             height: 4rem;
-            padding: 0 1rem;
+            /* padding: 0 1rem; */
             position: relative;
         }
 
@@ -95,7 +95,7 @@
 
             .nav-container {
                 height: 4.5rem;
-                padding: 0 2rem;
+                /* padding: 0 2rem; */
             }
 
             .bottom-item {
@@ -117,7 +117,7 @@
 
             .nav-container {
                 height: 5rem;
-                padding: 0 3rem;
+                /* padding: 0 3rem; */
             }
 
             .bottom-item {
