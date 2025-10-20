@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Schedules\Schemas;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
-use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 
 class ScheduleForm
@@ -30,7 +30,14 @@ class ScheduleForm
                 TimePicker::make('end_time')
                     ->required(),
                 TextInput::make('activity')
-                    ->required(),
+                    ->required()
+                    ->maxLength(255),
+                Textarea::make('message_when_done')
+                    ->required()
+                    ->maxLength(255),
+                Textarea::make('message_when_cancel')
+                    ->required()
+                    ->maxLength(255),
             ]);
     }
 }

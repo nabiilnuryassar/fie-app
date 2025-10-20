@@ -19,12 +19,15 @@ class AboutForm
                     ->maxLength(255),
                 Textarea::make('description')
                     ->label('Description')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                 FileUpload::make('image_path')
                     ->label('Image')
                     ->image()
+                    ->disk('public')
                     ->directory('abouts')
-                    ->nullable(),
+                    ->visibility('public')
+                    ->nullable()
             ]);
     }
 }

@@ -19,6 +19,8 @@ class ScheduleInfolist
                 TextEntry::make('end_time')
                     ->time(),
                 TextEntry::make('activity'),
+                TextEntry::make('message_when_done'),
+                TextEntry::make('message_when_cancel'),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
