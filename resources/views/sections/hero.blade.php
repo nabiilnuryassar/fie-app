@@ -9,6 +9,13 @@
             background-attachment: scroll;
         }
 
+        /* Prevent page scrolling only while this hero view is active.
+           We add/remove the `no-scroll` class on <body> from the JS below. */
+        body.no-scroll {
+            overflow: hidden !important;
+            height: 100vh; /* keep viewport height fixed */
+        }
+
         .header {
             position: relative;
             top: -50px;
@@ -670,6 +677,18 @@
                     localStorage.removeItem('dailyFeelingNotesDraft');
                     localStorage.removeItem('dailyFeelingNotes');
                 }
+                // -- Disable page scrolling while on the Hero view --
+                // Add `no-scroll` class to body to prevent scrolling for this page only.
+                document.body.classList.add('no-scroll');
+
+                // Remove class when navigating away or when the hero section is removed
+                window.addEventListener('beforeunload', function() {
+                    document.body.classList.remove('no-scroll');
+                });
+                // Fallback for single-page transitions: remove when DOMContent is unloaded
+                window.addEventListener('pagehide', function() {
+                    document.body.classList.remove('no-scroll');
+                });
             });
         </script>
     @endpush
