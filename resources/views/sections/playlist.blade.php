@@ -419,9 +419,9 @@
 
     <div class="container container-xl">
         <div class="playlist-container">
-                <a href="{{ route('gift.index') }}" class="back-button">
-                    <span>←</span> Back to Gift
-                </a>
+            <a href="{{ route('gift.index') }}" class="back-button">
+                <span>←</span> Back to Gift
+            </a>
             <div class="playlist-header">Fierda's Playlist</div>
             <div class="playlist-subtitle">The songs that sound like your smile.</div>
 
@@ -534,7 +534,7 @@
                     <div class="song-detail-desc">The songs that sound like your smile.</div>
                     <div class="pager" style="margin-top:.75rem">
                         <a class="pager-button"
-                            href="https://open.spotify.com/playlist/41V1OZSWQi1T44iBWiwVVB?si=2iPT2kI7TJKTuIqcb9ujIw&pt=d713e953d37a25ded0268bcbf549b8ff"
+                            href="https://open.spotify.com/playlist/41V1OZSWQi1T44iBWiwVVB?si=c4272f7aca574bd7"
                             target="_blank" rel="noopener" aria-label="Play on Spotify">
                             Play on Spotify
                         </a>
