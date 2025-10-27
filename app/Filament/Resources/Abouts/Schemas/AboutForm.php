@@ -24,6 +24,7 @@ class AboutForm
                 FileUpload::make('image_path')
                     ->label('Image')
                     ->image()
+                    ->imageEditor()
                     ->disk('public')
                     ->directory('abouts')
                     ->visibility('public')

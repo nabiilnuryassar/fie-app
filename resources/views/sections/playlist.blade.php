@@ -47,6 +47,29 @@
             font-size: clamp(1.5rem, 5vw, 2rem);
         }
 
+        /* Back button to return to Gift index */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-secondary);
+            color: var(--color-surface);
+            border: 2px solid var(--color-secondary);
+            border-radius: var(--border-radius-sm);
+            padding: 0.5rem 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            margin-bottom: 1rem;
+        }
+
+        .back-button:hover {
+            background: var(--color-surface);
+            color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 2px 2px 0px var(--color-secondary);
+        }
+
 
 
         .playlist-subtitle {
@@ -79,7 +102,7 @@
             font-size: 32px;
             color: #8B4513;
             margin-bottom: 4px;
-            margin-top: 2rem;
+            margin-top: 1rem;
             font-style: italic;
             font-weight: bold;
         }
@@ -396,6 +419,9 @@
 
     <div class="container container-xl">
         <div class="playlist-container">
+                <a href="{{ route('gift.index') }}" class="back-button">
+                    <span>←</span> Back to Gift
+                </a>
             <div class="playlist-header">Fierda's Playlist</div>
             <div class="playlist-subtitle">The songs that sound like your smile.</div>
 
@@ -421,6 +447,8 @@
                     text-decoration: none;
                     color: inherit;
                     overflow: hidden;
+                    position: relative;
+                    /* make badge position relative to this container */
                 }
 
                 .playlist-cover {
@@ -443,11 +471,16 @@
 
                 .spotify-badge {
                     position: absolute;
-                    inset: 0;
+                    /* center the badge over the cover */
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     pointer-events: none;
+                    z-index: 20;
+                    /* ensure it sits above the image */
                 }
 
                 .spotify-icon {

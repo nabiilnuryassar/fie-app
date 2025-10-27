@@ -19,13 +19,15 @@ class Playlist extends Model
     protected static function booted(): void
     {
         static::creating(function (Playlist $model) {
-            if (empty($model->thumbnail) && !empty($model->image)) {
+            // Mirror image into thumbnail on create
+            if (!empty($model->image)) {
                 $model->thumbnail = $model->image;
             }
         });
 
         static::updating(function (Playlist $model) {
-            if (empty($model->thumbnail) && !empty($model->image)) {
+            // Always keep thumbnail synced with image when image is present
+            if (!empty($model->image)) {
                 $model->thumbnail = $model->image;
             }
         });

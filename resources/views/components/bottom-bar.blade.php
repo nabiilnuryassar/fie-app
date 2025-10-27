@@ -178,9 +178,9 @@
             <img src="{{ asset('images/image-icon.png') }}" alt="gallery" class="w-6 h-6 mx-auto">
         </a>
 
-        <a href="/playlist" class="bottom-item text-center hover:text-primary transition-colors px-2"
-            data-key="playlist">
-            <img src="{{ asset('images/music-icon.png') }}" alt="playlist" class="w-6 h-6 mx-auto">
+        <a href="{{ route('gift.index') }}" class="bottom-item text-center hover:text-primary transition-colors px-2"
+            data-key="gift">
+            <img src="{{ asset('images/gift.png') }}" alt="playlist" class="w-6 h-6 mx-auto">
         </a>
 
         <a href="/about" class="bottom-item text-center hover:text-primary transition-colors px-2" data-key="about">
@@ -211,15 +211,17 @@
 
             function getCurrentPageKey() {
                 const path = location.pathname.replace(/^\//, '').toLowerCase();
+                // If the path starts with 'gift' (e.g. gift/playlist or gift/open-when-box), treat as gift
+                if (path === '' || path === 'home') return 'home';
+                if (path.startsWith('gift')) return 'gift';
+
                 const mapping = {
-                    '': 'home',
-                    'home': 'home',
                     'about': 'about',
                     'schedule': 'schedule',
                     'galery': 'gallery',
-                    'gallery': 'gallery',
-                    'playlist': 'playlist'
+                    'gallery': 'gallery'
                 };
+
                 return mapping[path] || 'home';
             }
 

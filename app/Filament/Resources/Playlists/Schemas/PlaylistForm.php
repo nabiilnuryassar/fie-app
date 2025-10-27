@@ -21,6 +21,7 @@ class PlaylistForm
                 FileUpload::make('image')
                     ->label('Image')
                     ->image()
+                    ->imageEditor()
                     ->disk('public')
                     ->directory('playlists')
                     ->visibility('public')
