@@ -251,6 +251,9 @@
             box-shadow: var(--shadow-pixel-sm);
             cursor: pointer;
             transition: var(--transition-normal);
+            /* Keep cards a consistent height and prevent child content from causing uneven layout */
+            align-items: stretch;
+            min-height: 88px;
         }
 
         .song-card:hover {
@@ -272,6 +275,9 @@
             flex-direction: column;
             gap: .25rem;
             overflow: hidden;
+            /* Let meta fill remaining space so cards align */
+            flex: 1 1 auto;
+            justify-content: space-between;
         }
 
         .song-title {
@@ -280,6 +286,17 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        /* Ensure description wraps inside its container and doesn't force card height */
+        .song-desc {
+            color: #6b4b32;
+            font-size: .95rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: .25rem;
         }
 
         .song-desc {
