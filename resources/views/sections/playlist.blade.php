@@ -251,9 +251,11 @@
             box-shadow: var(--shadow-pixel-sm);
             cursor: pointer;
             transition: var(--transition-normal);
-            /* Keep cards a consistent height and prevent child content from causing uneven layout */
-            align-items: stretch;
-            min-height: 88px;
+            /* Make cards a fixed, consistent height on mobile to avoid layout jumps between pages */
+            box-sizing: border-box;
+            height: 88px;
+            overflow: hidden;
+            align-items: center;
         }
 
         .song-card:hover {
@@ -277,7 +279,10 @@
             overflow: hidden;
             /* Let meta fill remaining space so cards align */
             flex: 1 1 auto;
-            justify-content: space-between;
+            min-width: 0;
+            /* allow text ellipsis to work inside flex */
+            justify-content: center;
+            /* center text vertically to keep consistent visual height */
         }
 
         .song-title {
@@ -297,15 +302,6 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
             margin-top: .25rem;
-        }
-
-        .song-desc {
-            color: #6b4b32;
-            font-size: .95rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
 
         /* Song detail modal */
@@ -566,8 +562,10 @@
                     @foreach ($playlists as $p)
                         <div class="song-card" data-open-modal="song-modal-{{ $p->id }}" tabindex="0"
                             role="button" aria-label="Buka detail {{ $p->title }}">
-                            <img class="song-thumb" src="{{ Storage::url($p->thumbnail) }}"
-                                alt="{{ $p->title }} thumbnail" />
+                            <img class="song-thumb" loading="lazy"
+                                src="{{ $p->thumbnail ? Storage::url($p->thumbnail) : asset('images/us.jpeg') }}"
+                                alt="{{ $p->title }} thumbnail"
+                                onerror="this.onerror=null;this.src='{{ asset('images/us.jpeg') }}';" />
                             <div class="song-meta">
                                 <div class="song-title">{{ $p->title }}</div>
                                 <div class="song-desc">{{ $p->description }}</div>
@@ -582,8 +580,10 @@
                         <div class="modal-backdrop" data-close></div>
                         <div class="modal-dialog">
                             <button type="button" class="modal-close-icon" data-close>&times;</button>
-                            <img class="song-cover" src="{{ Storage::url($p->image) }}"
-                                alt="{{ $p->title }} cover" />
+                            <img class="song-cover" loading="lazy"
+                                src="{{ $p->image ? Storage::url($p->image) : asset('images/us.jpeg') }}"
+                                alt="{{ $p->title }} cover"
+                                onerror="this.onerror=null;this.src='{{ asset('images/us.jpeg') }}';" />
                             <div class="song-detail-title">{{ $p->title }}</div>
                             <div class="song-detail-desc">{{ $p->description }}</div>
                         </div>
