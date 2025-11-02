@@ -291,7 +291,7 @@
                 <!-- Next Move Card -->
                 <div class="gift-card" onclick="openGift('nextmove')">
                     <div class="gift-icon jar"><img src="{{ asset('images/love.png') }}" alt=""></div>
-                    <div class="gift-title">The Next Chapter</div>
+                    <div class="gift-title">The Next Move</div>
                     <div class="gift-description">
                         A special message straight from my heart to yours. Something I've been meaning to ask you,
                         something that means the world to me.

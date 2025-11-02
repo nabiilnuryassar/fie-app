@@ -588,7 +588,7 @@
                 <div class="next-move-icon">
                     <img src="{{ asset('images/love.png') }}" alt="Love">
                 </div>
-                <div class="next-move-title">The Next Chapter</div>
+                <div class="next-move-title">The Next Move</div>
                 <div class="next-move-subtitle">A question from my heart to yours</div>
             </div>
 
