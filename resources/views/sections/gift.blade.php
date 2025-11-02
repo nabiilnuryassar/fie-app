@@ -100,7 +100,7 @@
         }
 
         .gift-icon.jar {
-            background: linear-gradient(135deg, #FFEAA7 0%, #FDCB6E 100%);
+            /* background: linear-gradient(135deg, #FFEAA7 0%, #FDCB6E 100%); */
         }
 
         .gift-title {
@@ -288,6 +288,26 @@
                     </div>
                 </div>
 
+                <!-- Next Move Card -->
+                <div class="gift-card" onclick="openGift('nextmove')">
+                    <div class="gift-icon jar"><img src="{{ asset('images/love.png') }}" alt=""></div>
+                    <div class="gift-title">The Next Chapter</div>
+                    <div class="gift-description">
+                        A special message straight from my heart to yours. Something I've been meaning to ask you,
+                        something that means the world to me.
+                    </div>
+                    <div class="gift-actions">
+                        <div class="gift-status available">
+                            <span>✨</span> Available
+                        </div>
+                    </div>
+                    <div class="gift-actions">
+                        <a href="{{ route('gift.next-move') }}" class="gift-button">
+                            <span>💕</span> Read Now
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Reason Why Jar Card -->
                 <div class="gift-card" onclick="openGift('jar')">
                     <div class="gift-icon jar">🏺</div>
@@ -328,6 +348,9 @@
                         // Already handled by the link
                         break;
                     case 'openbox':
+                        // Already handled by the link
+                        break;
+                    case 'nextmove':
                         // Already handled by the link
                         break;
                     case 'jar':

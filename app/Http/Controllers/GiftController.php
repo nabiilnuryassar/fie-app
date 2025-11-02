@@ -10,4 +10,9 @@ class GiftController extends Controller
     {
         return view('pages.gift');
     }
+
+    public function nextMove()
+    {
+        return view('pages.next-move');
+    }
 }

@@ -33,6 +33,7 @@ Route::prefix('gift')->group(function () {
     Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
     Route::get('/open-when-box', [OpenWhenBoxController::class, 'index'])->name('open-when-box.index');
     Route::get('/open-when-box/{openWhenBox}', [OpenWhenBoxController::class, 'show'])->name('open-when-box.show');
+    Route::get('/next-move', [GiftController::class, 'nextMove'])->name('gift.next-move');
 });
 
 // Testing routes
